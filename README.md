@@ -21,6 +21,12 @@ Finally, Clockbot also allows you to specify the update interval, which is the f
 go build -o go-myapps-clockbot .
 ```
 
+Cross-compiling for a Raspberry Pi 4 or innovaphone App Platform on a innovaphone IP411
+
+``` BASH
+GOARCH=arm64 GOOS=linux go build . -o go-myapps-clockbot
+```
+
 ## Usage
 
 ``` BASH
@@ -83,3 +89,9 @@ The string representation of a duration should be a sequence of decimal numbers,
 The recognized units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
 
 If the specified interval string is not valid, the Clockbot will return an error.
+
+## About ©
+
+[myApps](https://www.innovaphone.com/en/myapps/what-is-myapps.html) is a product of [innovaphone AG](https://www.innovaphone.com).
+
+Documentation of the API used in this client can be found at [ innovaphone App SDK](https://sdk.innovaphone.com/).
