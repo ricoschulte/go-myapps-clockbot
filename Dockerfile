@@ -20,7 +20,7 @@ RUN CGO_ENABLED=0 go build \
 # strip the binary to reduce size  
 
 # install strip with package binutils and valid timezone data
-RUN apk update && apk add --no-cache binutils tzdata
+RUN apk update && apk add --no-cache binutils tzdata ca-certificates
 
 # This will modify the binary in-place, removing the debugging information and making it smaller.
 # Note that stripping a binary will make it difficult to debug if there are issues with it later on, so use this with caution.
@@ -34,6 +34,8 @@ ARG VERSION
 WORKDIR /app
 COPY --from=builder /app/go-myapps-clockbot /app/go-myapps-clockbot
 COPY --from=builder /usr/share/zoneinfo/ /usr/share/zoneinfo/
+COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
+
 LABEL \
   org.opencontainers.image.vendor="Rico Schulte" \
   org.opencontainers.image.title="go-myapps-clockbot" \
