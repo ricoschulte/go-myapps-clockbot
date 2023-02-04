@@ -34,33 +34,33 @@ func main() {
 	options := ". use -h to show commandline options"
 	if *host == "" {
 		fmt.Println("host cant be empty", options)
-		os.Exit(1)
+		ExitWithDelay(1)
 	}
 
 	if *username == "" {
 		fmt.Println("username cant be empty", options)
-		os.Exit(1)
+		ExitWithDelay(1)
 	}
 
 	if *password == "" {
 		fmt.Println("password cant be empty", options)
-		os.Exit(1)
+		ExitWithDelay(1)
 	}
 	if *useragent == "" {
 		fmt.Println("useragent cant be empty", options)
-		os.Exit(1)
+		ExitWithDelay(1)
 	}
 
 	_, err_location := time.LoadLocation(*timezone)
 	if err_location != nil {
 		fmt.Printf("unknown timezone '%s': %v\n", *timezone, err_location)
-		os.Exit(1)
+		ExitWithDelay(1)
 	}
 
 	_, err_duration := time.ParseDuration(*interval)
 	if err_duration != nil {
 		fmt.Printf("unknown duration '%s': %v\n", *interval, err_duration)
-		os.Exit(1)
+		ExitWithDelay(1)
 	}
 
 	var wg sync.WaitGroup
@@ -83,6 +83,11 @@ func main() {
 
 	wg.Wait()
 	select {}
+}
+
+func ExitWithDelay(exitcode int) {
+	time.Sleep(3 * time.Second)
+	os.Exit(exitcode)
 }
 
 type ClockbotHandler struct{}
