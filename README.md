@@ -35,22 +35,22 @@ Usage: go-myapps-clockbot [options]
 Options:
   -debug
         show debug output
+  -format string
+        the format to show the current data & time (default "2006-01-02 15:04:05")
   -host string
         the IP address or Hostname of the Pbx. Needs to be the HTTP/TLS port
   -insecureskipverify
         skip verify TLS/SSL certificates
+  -interval string
+        interval in seconds to update the user presence (default "1s")
   -password string
         the Password of the myApps account
+  -timezone string
+        the timezone to use to show the date & time. if not set UTC is used
   -useragent string
         the UserAgent showe in the list of sessions of the myApps account (default "Clockbot (go-myapps)")
   -username string
         the Username of the myApps account
-  -format string
-        the format to show the current data & time (default "2006-01-02 15:04:05")  
-  -timezone string
-        the timezone to use to show the date & time (default "Europe/Berlin")
-  -interval string
-        interval in seconds to update the user presence (default "1s")
 ```
 
 ## Timezone

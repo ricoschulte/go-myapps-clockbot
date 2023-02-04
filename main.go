@@ -19,7 +19,7 @@ var useragent = flag.String("useragent", "Clockbot (go-myapps)", "the UserAgent 
 var insecureskipverify = flag.Bool("insecureskipverify", false, "skip verify TLS/SSL certificates")
 var debug = flag.Bool("debug", false, "show debug output")
 var interval = flag.String("interval", "1s", "interval in seconds to update the user presence")
-var timezone = flag.String("timezone", "Europe/Berlin", "the timezone to use to show the date & time")
+var timezone = flag.String("timezone", "", "the timezone to use to show the date & time. if not set UTC is used")
 var format = flag.String("format", "2006-01-02 15:04:05", "the format to show the current data & time")
 
 func main() {
