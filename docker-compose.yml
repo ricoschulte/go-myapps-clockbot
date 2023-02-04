@@ -1,0 +1,55 @@
+version: "3.7"
+services:
+  clockbot-berlin:
+    image: go-myapps-clockbot:latest
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VERSION: latest
+    restart: always
+    command: |
+      -host 144.18.120.200
+      -insecureskipverify 
+      -username test_berlin
+      -password test_berlin_password
+      -debug
+      -interval 1m
+      -format "🇩🇪 Mon 2.1.2006 15:04"
+      -timezone "Europe/Berlin"
+      -sessionfile "/data/myapps_session_%s.json"
+    volumes:
+      - "data:/data"
+
+  clockbot-newyork:
+    image: go-myapps-clockbot:latest
+    restart: always
+    command: |
+      -host pbx.company.com
+      -insecureskipverify 
+      -username test_newyork
+      -password test_newyork_password
+      -debug
+      -interval 1m
+      -format "🇺🇸 Mon 2.1.2006 15:04"
+      -timezone "America/New_York"
+      -sessionfile "/data/myapps_session_%s.json"
+    volumes:
+      - "data:/data"
+
+  clockbot-sydney:
+    image: go-myapps-clockbot:latest
+    restart: always
+    command: |
+      -host pbx.company.com:443 
+      -username test_sydney
+      -password test_sydney_password
+      -interval 1m
+      -format "🇦🇺 Mon 2.1.2006 15:04"
+      -timezone "Australia/Sydney"
+      -sessionfile "/data/myapps_session_%s.json"
+    volumes:
+      - "data:/data"
+
+volumes:
+  data:
