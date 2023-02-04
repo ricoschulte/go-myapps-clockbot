@@ -46,9 +46,9 @@ Options:
   -password string
         the Password of the myApps account
   -sessionfile string
-        the filename used to store the session. can conaint '%s' as placeholder for the accountname. (default "myapps_session_%s.json")
+        the filename used to store the session. can contain '%s' as placeholder for the accountname. (default "myapps_session_%s.json")
   -timezone string
-        the timezone to use to show the date & time. if not set UTC is used
+        the timezone to use to show the date & time
   -useragent string
         the UserAgent showe in the list of sessions of the myApps account (default "Clockbot (go-myapps)")
   -username string

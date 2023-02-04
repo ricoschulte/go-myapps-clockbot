@@ -15,12 +15,12 @@ import (
 var host = flag.String("host", "", "the IP address or Hostname of the Pbx. Needs to be the HTTP/TLS port")
 var username = flag.String("username", "", "the Username of the myApps account")
 var password = flag.String("password", "", "the Password of the myApps account")
-var sessionfile = flag.String("sessionfile", "myapps_session_%s.json", "the filename used to store the session. can conaint '%s' as placeholder for the accountname.")
+var sessionfile = flag.String("sessionfile", "myapps_session_%s.json", "the filename used to store the session. can contain '%s' as placeholder for the accountname.")
 var useragent = flag.String("useragent", "Clockbot (go-myapps)", "the UserAgent showe in the list of sessions of the myApps account")
 var insecureskipverify = flag.Bool("insecureskipverify", false, "skip verify TLS/SSL certificates")
 var debug = flag.Bool("debug", false, "show debug output")
 var interval = flag.String("interval", "1s", "interval in seconds to update the user presence")
-var timezone = flag.String("timezone", "", "the timezone to use to show the date & time. if not set UTC is used")
+var timezone = flag.String("timezone", "", "the timezone to use to show the date & time")
 var format = flag.String("format", "2006-01-02 15:04:05", "the format to show the current data & time")
 
 func main() {
