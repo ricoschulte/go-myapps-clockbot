@@ -110,7 +110,7 @@ func (m *ClockbotHandler) RunLoop(myAppsConnection *connection.MyAppsConnection,
 		}
 		message_out.Mt = "SetOwnPresence"
 		message_out.Activity = ""
-		message_out.Note = now.Format(*format)
+		message_out.Note = GetFormatedTimeString(now, *format)
 		updateStr, _ := json.Marshal(message_out)
 
 		err_write := myAppsConnection.Conn.WriteMessage(websocket.TextMessage, []byte(updateStr))
@@ -124,4 +124,8 @@ func (m *ClockbotHandler) RunLoop(myAppsConnection *connection.MyAppsConnection,
 		time.Sleep(duration)
 	}
 
+}
+
+func GetFormatedTimeString(current time.Time, format string) string {
+	return current.Format(format)
 }
