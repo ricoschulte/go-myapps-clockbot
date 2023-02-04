@@ -45,6 +45,8 @@ Options:
         interval in seconds to update the user presence (default "1s")
   -password string
         the Password of the myApps account
+  -sessionfile string
+        the filename used to store the session. can conaint '%s' as placeholder for the accountname. (default "myapps_session_%s.json")
   -timezone string
         the timezone to use to show the date & time. if not set UTC is used
   -useragent string

@@ -15,6 +15,7 @@ import (
 var host = flag.String("host", "", "the IP address or Hostname of the Pbx. Needs to be the HTTP/TLS port")
 var username = flag.String("username", "", "the Username of the myApps account")
 var password = flag.String("password", "", "the Password of the myApps account")
+var sessionfile = flag.String("sessionfile", "myapps_session_%s.json", "the filename used to store the session. can conaint '%s' as placeholder for the accountname.")
 var useragent = flag.String("useragent", "Clockbot (go-myapps)", "the UserAgent showe in the list of sessions of the myApps account")
 var insecureskipverify = flag.Bool("insecureskipverify", false, "skip verify TLS/SSL certificates")
 var debug = flag.Bool("debug", false, "show debug output")
@@ -71,7 +72,7 @@ func main() {
 		Password:           *password,
 		InsecureSkipVerify: *insecureskipverify,
 		UserAgent:          *useragent,
-		SessionFilePath:    fmt.Sprintf("myapps_session_%s.json", *username),
+		SessionFilePath:    fmt.Sprintf(*sessionfile, *username),
 		Debug:              *debug,
 	}
 
